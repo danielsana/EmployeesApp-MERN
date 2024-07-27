@@ -6,9 +6,9 @@ const mongoose = require('mongoose');
 // import routes 
 var routes = require('./routes/routes');
 // import cors 
-var cors = require('cors')
+// var cors = require('cors')
 // connect to mongodb 
-mongoose.connect("mongodb://localhost:27017/EMP_DB", { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost:27017/EMP_DB")
 .then(()=>{
     // create an express app 
     var app = express()

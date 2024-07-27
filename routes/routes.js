@@ -1,34 +1,96 @@
-// import express js to create route 
+//Import Express JS to be used in creating routes
 var express = require("express")
-// import the schema 
+//import our Employee Schema
 var Employee = require("../models/Employee")
+//create a Router from Express
+var router = express.Router();
 
-// create a router from express 
-var router = express.Router()
-
-// create a route for post request
-router.post("/add",async(req,res)=>{
-    // provide data payload using req 
+//POST Route - to Post data using our Employee model variables
+router.post("/add", async (req, res)=>{
+    //Provide data payload using req => ths is the Payload sent by Client, through, Angular, Curl, or even Postman
     var post = Employee({
-        // extract each variable from request 
-        first_name:req.body.first_name,
-        last_name:req.body.last_name,
-        surname:req.body.surname,
-        phone:req.body.phone,
-        gender:req.body.gender,
-        residence:req.body.residence,
-        id_number:req.body.id_number,
-        department:req.body.department,
-        qualification:req.body.qualification
+        //Extract each variable from request
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        surname: req.body.surname,
+        phone: req.body.phone,
+        gender: req.body.gender,
+        residence: req.body.residence,
+        id_number: req.body.id_number,
+        department: req.body.department,
+        qualification: req.body.qualification
     })
-    try{
-        // save the data to the database
+    try {
+        //Post the data 
         var result = await post.save()
-        res.status(200).json({'message':'Employees Registered'})
+        res.status(200).json({ 'message': 'Employee Registered' })
+    }
+    catch (err) {
+        res.status(200).json({ 'message': 'Error Occured!' })
+        console.log(err)
+    }
+});
+
+// get all employees
+router.get("/employees", async(req,res)=>{
+    try{
+        // here we find all employees from employee model 
+        var result = await Employee.find({})
+        res.status(200).json({"message": result})
     }
     catch(err){
-        res.status(500).json({'message':'Error Occured'})
+        res.status(200).json({"message": "Error Occured!"})
     }
-})
+});
 
+// get by first name 
+router.get("/employees/byname", async(req,res)=>{
+    try{
+        // here we find one employee from employee model by name
+        var first_name =req.body.first_name
+        var result = await Employee.findOne({"first_name":first_name})
+        res.status(200).json({"message":result})
+        }
+    catch(err){
+        res.status(200).json({"message": "Error Occured!"})
+    }
+});
+
+// update an employee 
+//PUT
+router.put("/employees/update", async (req, res) => {
+    try {
+        var first_name = req.body.first_name
+        var qualification = req.body.qualification
+
+        var result = await Employee.updateOne({ 'first_name': first_name }, {
+            $set: {
+                qualification: qualification
+            }
+        });
+
+        res.status(200).json({ 'message': result })
+    }
+    catch (err) {
+        res.status(400).json({ 'message': err.message })
+    }
+});
+
+// delete 
+
+//DELETE
+router.delete("/employees/delete", async (req, res) => {
+    try {
+        var first_name = req.body.first_name
+
+        var result = await Employee.deleteOne({ 'first_name': first_name });
+
+        res.status(200).json({ 'message': result })
+    }
+    catch (err) {
+        res.status(400).json({ 'message': err.message })
+    }
+});
+
+//
 module.exports = router;
