@@ -1,7 +1,12 @@
 //Import Express JS to be used in creating routes
 var express = require("express")
 //import our Employee Schema
+
+const bcrypt = require("bcrypt")
+
 var Employee = require("../models/Employee")
+var User = require('../models/User')
+
 //create a Router from Express
 var router = express.Router();
 
@@ -10,6 +15,7 @@ router.post("/add", async (req, res)=>{
     //Provide data payload using req => ths is the Payload sent by Client, through, Angular, Curl, or even Postman
     var post = Employee({
         //Extract each variable from request
+
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         surname: req.body.surname,
@@ -91,6 +97,30 @@ router.delete("/employees/delete", async (req, res) => {
         res.status(400).json({ 'message': err.message })
     }
 });
+
+router.post('/register-user', async (req, res) => {
+    bcrypt.hash(req.body.password, 10).then((hash) => {
+      const user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: hash,
+      })
+        
+      user.save()
+        .then((response) => {
+          res.status(201).json({
+            message: 'User successfully created!',
+            result: response,
+          })
+        })
+        .catch((error) => {
+          res.status(500).json({
+            error: error,
+          })
+        })
+    })
+})
+
 
 //
 module.exports = router;
