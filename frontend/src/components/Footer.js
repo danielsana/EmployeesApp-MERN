@@ -1,12 +1,22 @@
 import React from "react";
+import { FaInstagram , FaTwitter , FaFacebook} from 'react-icons/fa';
+
+
+
 
 function Footer() {
   return (
     <div className="footer">
       <div className="socials">
-        <a href="#">facebook</a>
-        <a href="#">instagram</a>
-        <a href="#">Twitter</a>
+        <a href="#">
+          <FaFacebook />
+        </a>
+        <a href="#">
+        <FaInstagram />
+        </a>
+        <a href="#">
+          <FaTwitter />
+        </a>
       </div>
       <div className="slogan">
         <p>make IT happen</p>
