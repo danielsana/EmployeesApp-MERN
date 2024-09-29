@@ -26,7 +26,6 @@ a{
   text-decoration: none;
   font-size: 1.5rem;
   color: white;
-
 }
 nav{
   /* background-color: gray; */
@@ -66,10 +65,57 @@ nav a:hover{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: aliceblue; */
-  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 100vh;
+  padding: 10px;
+}
+.footer .socials{
+  /* background-color: aquamarine; */
+  padding: 20px 40px;
+  border-left: solid 2px white;
+  
+  
 }
 .footer a{
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   padding: 0.5rem;
+  transition: 0.3s;
+  color: crimson;
+}
+.footer a:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+  scale: 1.4;
+  border-top: solid 2px crimson;
+  border-left: solid 2px crimson;
+  border-right: solid 2px crimson;
+  color: white;
+}
+.footer .slogan{
+  font-size: 1.0rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: crimson;
+}
+.footer .apps{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.footer .apps p{
+  color: crimson;
+  transition: 0.3s;
+}
+.footer .apps p:hover{
+  font-size: 1.0rem;
+  border-left: solid 0.5px crimson;
+  padding-left: 5px;
+  color: white;
+  /* border-he: 10px; */
+}
+.footer .apps span{
+  color: white;
+  /* border: solid 0.5px crimson; */
 }

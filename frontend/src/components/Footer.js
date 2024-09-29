@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram , FaTwitter , FaFacebook} from 'react-icons/fa';
+import { FaInstagram , FaTwitter , FaFacebook , FaApple , FaGooglePlay} from 'react-icons/fa';
 
 
 
@@ -19,11 +19,16 @@ function Footer() {
         </a>
       </div>
       <div className="slogan">
-        <p>make IT happen</p>
+        <p>make <br /> IT <br /> happen</p>
       </div>
       <div className="apps">
-        <p>Download on PlayStore</p>
-        <p>GetIt on AppleStore</p>
+        <p><span>
+          <FaGooglePlay/>
+          </span> Download on PlayStore</p>
+        <p>
+          <span>
+            <FaApple />
+          </span> GetIt on AppleStore</p>
       </div>
     </div>
   );
