@@ -28,7 +28,7 @@ function Footer() {
         <p>
           <span>
             <FaApple />
-          </span> GetIt on AppleStore</p>
+          </span> Get ItOn AppleStore</p>
       </div>
     </div>
   );

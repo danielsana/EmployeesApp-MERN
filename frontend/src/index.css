@@ -46,7 +46,7 @@ nav a:hover{
   scale: 1.2;
 }
 .active{
-  background-color: rgb(154, 195, 181);
+  background-color: rgba(0, 0, 0, 0.2);
   border-top: solid 2px crimson;
   border-left: solid 2px crimson;
   border-right: solid 2px crimson;
@@ -55,6 +55,11 @@ nav a:hover{
   border-top-right-radius: 5px;
   scale: 1.2;
   /* border-bottom-right-radius: -50px; */
+}
+.content{
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
 }
 .dashimg{
   width: 60%;
@@ -118,4 +123,48 @@ nav a:hover{
 .footer .apps span{
   color: white;
   /* border: solid 0.5px crimson; */
+}
+/* emp previews / list */
+.emp-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.emp-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.emp-preview h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}
+.EmpDelete{
+  color: #f1356d;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  transition: 0.8s;
+}
+.EmpDelete:hover{
+  color: #fff;
+  border: none;
+  background-color: rgba(0,0,0,0.7);
+  border: solid 0.5px #f1356d;
+  scale: 1.2;
+  padding: 1px 2px;
+  margin: 0px 2px;
+}
+.EmpUpdate{
+  color: #157408;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  transition: 0.8s;
+}
+.EmpUpdate:hover{
+  color: #fff;
+  border: none;
+  background-color: rgba(0,0,0,0.7);
+  border: solid 0.5px #157408;
+  scale: 1.2;
+  padding: 1px 2px;
+  margin: 0px 2px;
 }

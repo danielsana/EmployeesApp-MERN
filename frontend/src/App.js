@@ -1,19 +1,11 @@
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
+// import HomeP from "./pages/HomeP";
+import ViewP from "./pages/ViewP";
 
 function App() {
   return (
-    <div className="app">
-      <div className="navbar">
-        <Navbar/>
-      </div>
-      <div className="content">
-        <Home/>
-      </div>
-      <div>
-        <Footer/>
-      </div>
+    <div>
+      {/* <HomeP/> */}
+      <ViewP/>
     </div>
   );
 }
