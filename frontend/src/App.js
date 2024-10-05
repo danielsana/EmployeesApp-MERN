@@ -10,6 +10,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<HomeP />} />
+          <Route path="/view" element={<ViewP />} />
           <Route path="/add" element={<ViewP />} />
         </Routes>
       </div>
