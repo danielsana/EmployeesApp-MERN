@@ -1,9 +1,6 @@
 import React from "react";
 import { FaInstagram , FaTwitter , FaFacebook , FaApple , FaGooglePlay} from 'react-icons/fa';
 
-
-
-
 function Footer() {
   return (
     <div className="footer">

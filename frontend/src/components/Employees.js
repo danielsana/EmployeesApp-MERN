@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaTrash , FaSync } from 'react-icons/fa';
+import { FaTrash , FaEdit } from 'react-icons/fa';
 
 function Employees({employees,title,handleDelete}) {
   return (
@@ -9,7 +9,7 @@ function Employees({employees,title,handleDelete}) {
                 <h2>{employee.first_name} {employee.last_name}</h2>
                 <p>{employee.qualification}</p>
                 <button className='EmpUpdate'>
-                    <FaSync />
+                    <FaEdit />
                 </button>
                 <button className='EmpDelete' onClick={() =>handleDelete(employee.id_number)}>
                     <FaTrash />
