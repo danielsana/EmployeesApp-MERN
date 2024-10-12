@@ -24,6 +24,7 @@ code {
 }
 .content{
   min-width: 60%;
+  height:120vh;
   margin: 20px auto;
   padding: 20px auto;
 }

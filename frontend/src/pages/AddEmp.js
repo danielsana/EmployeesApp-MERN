@@ -16,6 +16,9 @@ const AddDetailsForm = () => {
     qualification: '',
   });
 
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,9 +26,37 @@ const AddDetailsForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log('Form data submitted: ', formData);
+    try {
+      const response = await fetch("/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add employee");
+      }
+
+      setSuccess(true);
+      setFormData({
+        // Reset form after successful submission
+        first_name: "",
+        last_name: "",
+        surname: "",
+        phone: "",
+        gender: "",
+        residence: "",
+        id_number: "",
+        department: "",
+        qualification: "",
+      });
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -37,6 +68,13 @@ const AddDetailsForm = () => {
       <div className="content">
     <div className="form-container">
       <h2>Add Personal Details</h2>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {success && (
+        <p style={{ color: "green" }}>Employee added successfully!</p>
+      )}
+
+      
       <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
           <label>First Name:</label>

@@ -5,7 +5,7 @@ function Employees({employees,title,handleDelete}) {
   return (
     <div className='employees'>
       {employees.map((employee) =>(
-            <div className="emp-preview" key={employee.id_number}>
+            <div className="emp-preview" key={employee._id}>
                 <h2>{employee.first_name} {employee.last_name}</h2>
                 <p>{employee.qualification}</p>
                 <button className='EmpUpdate'>
